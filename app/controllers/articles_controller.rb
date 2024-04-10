@@ -23,4 +23,15 @@ class ArticlesController < ApplicationController
         @article_tag.save
         redirect_to("/articles/home")
     end
+    def edit
+        @article=Article.find_by(id: params[:id])
+    end
+    def update
+        @article=Article.find_by(id: params[:id])
+        @article.title=params[:title]
+        @article.summary=params[:summary]
+        @article.content=params[:content]
+        @article.save
+        redirect_to("/articles/home")
+    end
 end
