@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
     def index
+        @articles=Article.all
     end
     def show
     end
@@ -12,8 +13,13 @@ class ArticlesController < ApplicationController
             content: params[:content]
         )
         @article.save
-        @genre=Genre.new(name: params[:name])
-        @genre.save
+        @tag=Tag.new(name: params[:name])
+        @tag.save
+        @article_tag = ArticleTag.new(
+            article_id: @article.id,
+            tag_id: @tag.id
+        )
+        @article_tag.save
         redirect_to("/articles/home")
     end
 end
