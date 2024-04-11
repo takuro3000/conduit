@@ -14,13 +14,11 @@ class ArticlesController < ApplicationController
             content: params[:content]
         )
         @article.save
-        @tag=Tag.new(name: params[:name])
-        @tag.save
-        @article_tag = ArticleTag.new(
-            article_id: @article.id,
-            tag_id: @tag.id
-        )
-        @article_tag.save
+        tags = params[:tags].split(",").map(&:strip)
+        tags.each do |tag_name|
+            tag = Tag.find_or_create_by(name: tag_name)
+            @article.tags << tag
+        end
         redirect_to("/articles/home")
     end
     def edit

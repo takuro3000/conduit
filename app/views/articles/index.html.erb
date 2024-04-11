@@ -36,8 +36,9 @@
               <p><%=article.summary %></p>
               <span>Read more...</span>
               <ul class="tag-list">
-                <li class="tag-default tag-pill tag-outline">realworld</li>
-                <li class="tag-default tag-pill tag-outline">implementations</li>
+                <% article.tags.each do |tag| %>
+                  <li class="tag-default tag-pill tag-outline"><%= tag.name %></li>
+                <% end %>
               </ul>
             </a>
           </div>
