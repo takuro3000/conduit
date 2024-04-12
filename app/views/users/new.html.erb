@@ -7,22 +7,23 @@
           <a href="/login">Have an account?</a>
         </p>
 
-        <ul class="error-messages">
-          <li>That email is already taken</li>
-        </ul>
-
-        <form>
+        <% @user.errors.full_messages.each do |message| %>
+          <ul class="error-messages">
+            <li><%= message %></li>
+          </ul>
+        <% end %>
+        <%= form_tag("/users/create") do %>
           <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Username" />
+            <input class="form-control form-control-lg" type="text" placeholder="Username" name="name" value="<%= @user.name %>" />
           </fieldset>
           <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Email" />
+            <input class="form-control form-control-lg" type="text" placeholder="Email" name="email" value="<%= @user.email %>" />
           </fieldset>
           <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="password" placeholder="Password" />
+            <input class="form-control form-control-lg" type="password" placeholder="Password" name="password" value="<%= @user.password %>" />
           </fieldset>
-          <button class="btn btn-lg btn-primary pull-xs-right">Sign up</button>
-        </form>
+          <button class="btn btn-lg btn-primary pull-xs-right" type="submit" >Sign up</button>
+        <% end %>
       </div>
     </div>
   </div>

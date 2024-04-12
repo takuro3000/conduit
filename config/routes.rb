@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get "articles/:id/edit" => "articles#edit"
   post "articles/:id/update" => "articles#update"
   get "signup" => "users#new"
+  post "users/create" => "users#create"
   get "login" => "users#login"
 end
