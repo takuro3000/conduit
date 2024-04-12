@@ -33,12 +33,15 @@ class ArticlesController < ApplicationController
         @article.title=params[:title]
         @article.summary=params[:summary]
         @article.content=params[:content]
-        @article.save
         tags = params[:tags].split(",").map(&:strip)
         tags.each do |tag_name|
             tag = Tag.find_or_create_by(name: tag_name)
             @article.tags << tag
         end
-        redirect_to("/articles/home")
+        if @article.save
+            redirect_to("/articles/home")
+        else
+            render("articles/edit")
+        end
     end
 end
