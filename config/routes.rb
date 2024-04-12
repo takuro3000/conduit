@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get "articles/:id" => "articles#show"
   get "articles/:id/edit" => "articles#edit"
   post "articles/:id/update" => "articles#update"
+  get "signup" => "users#new"
+  get "login" => "users#login"
 end
