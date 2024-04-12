@@ -14,6 +14,17 @@ class UsersController < ApplicationController
             render("users/new")
         end
     end
+    def login_form
+    end
     def login
+        @user=User.find_by(email: params[:email])
+        if @user
+            redirect_to("/articles/home")
+        else
+            @error_message = "This email or password is incorrect"
+            @email=params[:email]
+            @password=params[:password]
+            render("users/login_form")
+        end
     end
 end
