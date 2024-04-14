@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
     def forbid_login_user
         if @current_user
-            redirect_to("/articles/home")
+            redirect_to("/articles")
         end
     end
 end

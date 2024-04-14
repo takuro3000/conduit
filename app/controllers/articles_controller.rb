@@ -45,4 +45,9 @@ class ArticlesController < ApplicationController
             render("articles/edit")
         end
     end
+    def destroy
+        @article=Article.find_by(id: params[:id])
+        @article.destroy
+        redirect_to("/articles")
+    end
 end
