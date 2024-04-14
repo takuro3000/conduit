@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             password: params[:password]
         )
         if @user.save
-            redirect_to("/articles/home")
+            redirect_to("/articles")
         else
             render("users/new")
         end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         @user=User.find_by(email: params[:email])
         if @user
             session[:user_id] = @user.id
-            redirect_to("/articles/home")
+            redirect_to("/articles")
         else
             @error_message = "This email or password is incorrect"
             @email=params[:email]
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     end
     def ensure_correct_user
         if @current_user.id != params[:id].to_i
-            redirect_to("/articles/home")
+            redirect_to("/articles")
         end
     end
 end

@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
             @article.tags << tag
         end
         if @article.save
-            redirect_to("/articles/home")
+            redirect_to("/articles")
         else
             render("articles/new")
         end
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
             @article.tags << tag
         end
         if @article.save
-            redirect_to("/articles/home")
+            redirect_to("/articles")
         else
             render("articles/edit")
         end

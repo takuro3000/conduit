@@ -19,7 +19,7 @@
           &nbsp; Favorite Post <span class="counter">(29)</span>
         </button>
         <button class="btn btn-sm btn-outline-secondary">
-          <i class="ion-edit"></i> <%= link_to( "Edit Article","/articles/#{@article.id}") %>
+          <i class="ion-edit"></i> <%= link_to( "Edit Article","/articles/#{@article.id}/edit") %>
         </button>
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-edit"></i> <%= button_to( "Delete Article",article_path(@article),method: :delete) %>
