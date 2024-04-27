@@ -6,6 +6,6 @@ class ArticleTest < ActiveSupport::TestCase
   # end
   test "should not save article without title" do
     article = Article.new
-    article_not article.save
+    assert_not article.save
   end
 end
