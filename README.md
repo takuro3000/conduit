@@ -1,24 +1,13 @@
-# README
+# テストすべき項目
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+自分が追加した機能について正しい動作ができているかすべて確認するイメージ。
 
-Things you may want to cover:
+validationなどrailsで設定する機能のテストは優先度が低そう。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+モデル、コントローラー、ビューで別々にテストする必要あり。
+- ユーザー登録　成功・失敗
+- ユーザー編集　成功・失敗
+- ユーザー削除
+- (フラッシュメッセージのテスト)
+- タグとの関連付けが正しく行われているか
+- 認証されたユーザーのみ記事を投稿・削除・編集ができるか
